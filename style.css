@@ -1,0 +1,21 @@
+body{margin:0;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#222;background:#faf9f6}
+a{color:#7a4b12}header{background:#fff;border-bottom:1px solid #ddd;padding:.6rem 1rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+header .t{font-weight:700;text-decoration:none;color:#222;font-size:1.1rem}header nav a{margin-right:.9rem;text-decoration:none}
+.contact{background:#fff7e0;border-bottom:1px solid #e8d9a8;padding:.4rem 1rem;font-size:.9rem;text-align:center}
+main{max-width:1200px;margin:0 auto;padding:1rem}.muted{color:#777;font-size:.9rem}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.cat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:10px;text-decoration:none;color:#222}
+.cat h2{font-size:1.05rem;margin:.2rem 0 .5rem}.cat .s{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.cat img{width:100%;aspect-ratio:1;object-fit:cover;background:#eee}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.grid a{display:block;background:#fff;border:1px solid #e3e3e3}.grid img{width:100%;aspect-ratio:1;object-fit:contain;background:#f3f3f3;display:block}
+.item{display:grid;grid-template-columns:minmax(280px,1fr) minmax(280px,1fr);gap:20px}.item img{max-width:100%;border:1px solid #ddd}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #eee;padding:.45rem .3rem;text-align:left;vertical-align:top;font-size:.95rem}
+th{width:9em;color:#555;font-weight:500}footer{color:#888;font-size:.85rem;text-align:center;padding:2rem 1rem}
+@media(max-width:700px){.item{grid-template-columns:1fr}}
+.btn{display:inline-block;background:#7a4b12;color:#fff;padding:.5rem 1rem;border-radius:4px;text-decoration:none;margin:.2rem .6rem .2rem 0}
+table{table-layout:fixed}td{overflow-wrap:anywhere;word-break:break-word}td a{overflow-wrap:anywhere}
+main{overflow-wrap:anywhere}@media(max-width:700px){th{width:5.5em}}
+.item.three{grid-template-columns:repeat(3,minmax(200px,1fr))}@media(max-width:700px){.item.three{grid-template-columns:1fr}}
+/* E-84 search box */
+#find{margin:0 0 1rem}#find label{font-weight:700;margin-right:.4rem}#find-q{font:inherit;padding:.4rem .6rem;width:min(26rem,100%);box-sizing:border-box;border:1px solid #bbb;border-radius:4px}#find-out{margin-bottom:1.2rem}#find-out:empty{display:none}#find-out a{text-decoration:none;color:#222;font-size:.85rem}#find-out span{display:block;padding:.15rem .35rem;overflow-wrap:anywhere}

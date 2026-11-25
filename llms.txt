@@ -1,0 +1,34 @@
+# 瓦当开放图像数据集
+
+> 古代瓦当的开放许可图像 1208 张（694 件，全部来自博物馆），每张附自动分割结果：标准裁剪图（1024 px，JPEG）与掩膜（PNG）；其中 535 张另有拍正图（按瓦当边缘的椭圆（多为外缘，少数为内缘）把斜拍的图拉回正圆，自动估计，可能不准）。母题类别为程序自动归类，可能有误；此外不作任何标注。
+
+本站与数据可直接抓取和下载，无需登录；robots.txt 全部放行。掩膜为 1024×1024 灰度 PNG：0 = 背景，255 = 瓦当，128 = 遮挡物（少数图才有）；与同名标准裁剪图逐像素对应。
+
+## 下载
+
+- [全部分割结果（一个 ZIP，约 312 MB）](https://huggingface.co/datasets/jshttla/wadang/resolve/main/wadang_v0.1.0_seg.zip?download=true): std/ 下每张图一张标准裁剪图（<图号>_crop.jpg）、一张掩膜（<图号>_mask.png）和一个同名 .txt（使用时须照写的署名）；catalog.csv 为目录
+- [只含正面图的分割结果（一个 ZIP，约 230 MB）](https://huggingface.co/datasets/jshttla/wadang/resolve/main/wadang_v0.1.0_seg_front.zip?download=true): 同上，只含拍到瓦当正面的图（AI 自动判断，不保证准确）
+- [拍正图（一个 ZIP，约 148 MB）](https://huggingface.co/datasets/jshttla/wadang/resolve/main/wadang_v0.1.0_rect.zip?download=true): rect/ 下 535 张图各一张拍正图（<图号>_crop.jpg）、一张做了同样变换的掩膜（<图号>_mask.png）和一个同名 .txt；仿射变换，沿边缘椭圆（多为外缘，少数为内缘）的短轴拉伸；自动估计，可能不准
+- [逐个文件直链表 files.csv](https://jshttla-wadang.static.hf.space/files.csv): 每行一张图：图像编号、器物编号、母题类别、正面（AI 自动判断）、原图署名、分割结果与拍正图署名、标准裁剪图直链、掩膜直链、拍正图直链、拍正掩膜直链（没有拍正图的为空）
+- [metadata.jsonl](https://huggingface.co/datasets/jshttla/wadang/resolve/main/metadata.jsonl): 同上，供程序读取；字段 image_id、object_id、motif、frontal（是否拍到瓦当正面，AI 自动判断，不保证准确）、attribution_text（原图署名）、attribution_text_derived（分割结果与拍正图署名）、crop_file、mask_file、rect_file、rect_mask_file（拍正图与拍正掩膜，没有则为空）、width、height、sha256
+- [目录数据库 wadang_v0.1.0.sqlite](https://huggingface.co/datasets/jshttla/wadang/resolve/main/wadang_v0.1.0.sqlite?download=true): SQLite；sources、licences、institutions、objects、images 五张表以编号相互关联，fields 表为每一列的含义与性质，catalogue 视图把常用的列合为一张；可按收藏机构、馆藏号、器物编号查询
+- [Hugging Face 数据集](https://huggingface.co/datasets/jshttla/wadang): datasets.load_dataset("jshttla/wadang", "std") 为分割结果（image、mask 两列）；datasets.load_dataset("jshttla/wadang", "rect") 为拍正图（image、mask 两列，只含有拍正图的 535 行）；datasets.load_dataset("jshttla/wadang") 为原图
+
+## 署名
+
+- 用原图时照“原图署名”，用分割结果或拍正图时照“分割结果、拍正图署名”，原样照写；两列为空的图不要求署名。
+- 同一件器物可能有多张照片（器物编号相同），划分训练集与测试集时请按器物编号分组。
+
+## 页面
+
+- [首页](https://jshttla-wadang.static.hf.space/): 按母题类别浏览
+- [说明](https://jshttla-wadang.static.hf.space/about.html)
+- [许可说明](https://jshttla-wadang.static.hf.space/license.html)
+- [声明](https://jshttla-wadang.static.hf.space/disclaimer.html)
+- [网站地图](https://jshttla-wadang.static.hf.space/sitemap.xml)
+- [网页镜像](https://jshttla.github.io/eavestilewebsiteDB/)
+- [处理代码](https://github.com/jshttla/SixDynastyEavesTile)
+
+## 联系
+
+- 侵权或勘误：sixdynastyliuchao@163.com
